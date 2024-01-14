@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+	<title>Price Comparision</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/product.css' %}">
+	<script src="https://use.fontawesome.com/02cfcb3bc4.js"></script>
+	<link rel="icon"href="{% static 'favicon.ico' %}">
+
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top abc">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+			<a href="{% url 'home' %}" class="navbar-brand">BlinkBuy</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="bs-nav-demo">
+			<form class="navbar-form navbar-left" method="POST" action="/">
+        		<div class="form-group">
+					<!-- <input type="text" class="form-control" placeholder="Search"> -->
+					{% csrf_token %}
+					{% for fm in fm2 %}
+					{{ fm }}
+					{% endfor %}
+					<button type="submit" style="display: none;">search</button>
+				</div>
+      		</form>
+		</div>
+	</div>
+	</nav>
+	<div class="navi">
+		<div class="navi">
+			<a href="{% url 'list' 'mobiles' %}" class="b mobile">Mobile Phones</a>
+			<a href="{% url 'list' 'laptops' %}" class="b laptop">Laptops</a>
+			<a href="{% url 'list' 'ac' %}" class="b ac">Air Conditioner</a>
+			<a href="{% url 'list' 'tv' %}" class="b tv">Televisions</a>
+			<a href="{% url 'list' 'refrigerators' %}" class="b fridge">Refrigerator</a>
+		</div>
+	</div>
+
+	<div>
+		<div class="divv"><img class="jkl thumbnail" src={{imagurl}} class="desc"></div>
+		
+		
+			<div><h2>Showing results for {{pname|capfirst}}</h2></div>
+
+			<div class="container pppp thumbnail">
+		    <p class="desc">{{des}}</p>
+			</div>
+		
+	</div>
+	
+	<div class="grp">
+		<h3 class="clr">Price List </h3>
+		<hr>
+		<div class="p"></div>
+		<div class="p"></div>
+		<div class="lpq pq bord"><img class="sizechange"src="https://bsmedia.business-standard.com/media-handler.php?mediaPath=http://bsmedia.business-standard.com/_media/bs/img/article/2014-09/17/full/1410955312-0696.jpg&width=1200"></div>
+		<div class="p"></div>
+		<div class="p">Rs. {{ priceA}}</div>
+		<div class="p"></div>
+		<div class="p"><button><a href={{linkA}}>View details</a></button></div>
+		<div class="p bord"></div>
+		<div class="p"></div>
+
+		<hr>
+		<div class="p"></div>
+		<div class="p"></div>
+		<div class="lpq pq bord"><img class="sizechange" src="https://thecarenumbers.in/wp-content/uploads/2021/01/Flipkart-Logo-1.png"></div>
+		<div class="p"></div>
+		<div class="p">Rs. {{priceF}}</div>
+		<div class="p"></div>
+		<div class="p"><button><a href={{linkF}}>View details</a></button></div>
+		<div class="p bord"></div>
+		<div class="p"></div>
+		{% comment %} <hr>
+		<div class="p"></div>
+		<div class="p"></div>
+		<!-- <div class="lpq pq bord">Croma</div> -->
+		<div class="lpq pq bord"><img class="sizechange"src="https://ambiencemalls.com/logos/08-28-18am_30-11-2018-1531798943_rUbCPT_Croma_Logo.jpg"></div>
+		<div class="p"></div>
+		<div class="p">Rs. {{priceC}}</div>
+		<div class="p"></div>
+		<div class="p"><button><a href={{linkC}}>View details</a></button></div>
+		<div class="p bord"></div>
+		<div class="p"></div> {% endcomment %}
+		<hr>	
+	</div>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<!-- <script type="text/javascript" src="{% static 'main/js/productpage.js'%}"></script> -->
+</body>
+
+</html>
